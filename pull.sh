@@ -8,6 +8,7 @@ repositories=(
     "/var/www/Phpmailer"
     "/etc/apache2"
     "/etc/icecast2"
+    "/home/bernard/statter"
 )
 
 # Function to update the repository
