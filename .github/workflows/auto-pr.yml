@@ -1,1 +1,39 @@
+name: Auto PR on Push to Main
 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout main branch
+      uses: actions/checkout@v3
+      with:
+        ref: main
+
+    - name: Create new branch
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git checkout -b update-branch
+
+    - name: Commit changes
+      run: |
+        git add .
+        git commit -m "Automated update"
+
+    - name: Push changes to new branch
+      run: git push --set-upstream origin update-branch
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v5
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        branch: update-branch
+        title: "Automated PR: Updates on main"
+        body: "This pull request contains automated updates from the main branch."
+        labels: "automated"
