@@ -9,6 +9,7 @@ repos=(
   "/etc/apache2"
   "/etc/icecast2"
   "/home/bernard/statter"
+  "/opt/scripts"
 
 )
 
