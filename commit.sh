@@ -6,7 +6,6 @@ repos=(
   "/var/www/doobeedoo.be"
   "/var/www/noordzee105.be"
   "/var/www/Phpmailer"
-  "/etc/apache2"
   "/etc/icecast2"
   "/home/bernard/statter"
   "/opt/scripts"
